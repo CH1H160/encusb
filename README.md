@@ -6,21 +6,29 @@ A compact USB encoder interface board using the AS5600 magnetic rotary encoder.
 This board reads the AS5600 angle data via I2C and outputs the encoder value through USB serial communication. It is designed for easy integration into robotics, motion control, and embedded systems.
 
 ## Features
-- AS5600(12-bit) magnetic encoder support
+- [AS5600(12-bit)](https://look.ams-osram.com/m/7059eac7531a86fd/original/AS5600-DS000365.pdf) magnetic encoder support
 - USB serial angle output
 - Error LED indicator
 - Compatible with Arduino framework
 
 
 ## Usage
-The board outputs the raw encoder angle value through USB serial.
-- Baud rate: 115200 bps
-- Range: 0 - 4095
+Please place the radial magnet above the AS5600 IC.
+<img src="images/position.png" width="500">
 
-If the magnet is not detected, -1 is output.
+The position changes depending on the magnet size and magnetic strength. Please fine-tune the position so that the red LED on the PCB does not light up.
+
+The PCB can be mounted with four M2 screws.
+<img src="images/size.png" width="500">
+
+The board outputs the raw encoder angle value through USB serial.
+- Baud rate: `115200` bps
+- Range: `0 - 4095`
+
+If the magnet is not detected, `-1` is output.
 If the magnet position is not correct, the LED will light up red.
 
-
+## Requirement
 The following environment is required for the firmware update.
 - [wchisp](https://github.com/ch32-rs/wchisp)
 
